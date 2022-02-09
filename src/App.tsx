@@ -10,11 +10,11 @@ const App = () => {
     const left = e.clientX - 50
     setCordinat({top, left})
   };
-
+  console.log('app')
   return (
     <>
      <div className="App" onClick={hendleSquare}>
-        <Ball props={cordinat} />
+        <Ball />
         <Square props={cordinat} />
     </div>
     </>
