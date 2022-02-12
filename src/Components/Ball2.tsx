@@ -1,8 +1,8 @@
 import React, {useState} from "react"
 
-const Ball = () => {
+const Ball2 = () => {
     
-  const [point, setPoint] = useState({ top: 10, left: 300 })
+  const [point, setPoint] = useState({ top: 10, left: 200 })
 
   const randomColor  = () => {
     const arrCollor = ['red', 'aqua', 'silver', 'blue' ];
@@ -10,12 +10,9 @@ const Ball = () => {
     return arrCollor[randomNumber(0, 3)]
   };
 
-  const styleClass: {top: string, left: string} = {top: `${point.top}px`, left: `${point.left}px`, }
+  const styleClass: {top: string, left: string} = {top: `10px`, left: `30px`, }
 
-  const ball = <div className="Ball" style={styleClass} onClick={(e) => {
-      e.stopPropagation();
-      point.top === 10 ? setPoint({...point, top: 410}) : setPoint({...point, top: 10})
-    }}>
+  const ball = <div className="Ball2" style={styleClass}>
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
     width="100" height="100" viewBox="0 0 1274.000000 1280.000000"
     preserveAspectRatio="xMidYMid meet">
@@ -93,4 +90,4 @@ const Ball = () => {
   return ball;
 };
 
-export default Ball;
+export default Ball2;

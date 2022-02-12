@@ -1,19 +1,20 @@
 import * as React from "react"
 
-const Square = (props: any) => {
-    // const collor = props.props === true ? "#ffffff" : 'current';
-   
-    const left = props.props.left ?? 200
-    const top = props.props.top ?? 200
+const Square = (props: { props :{ left: number, top: number }}) => {
+
+    const left = props.props.left ?? 300;
+    const top = props.props.top ?? 300;
 
     const randomColor  = () => {
         const arrCollor = ['red', 'aqua', 'silver', 'blue' ];
         const randomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-        return arrCollor[randomNumber(0, 3)]
+        return arrCollor[randomNumber(0, 3)];
     };
 
+    const styleClass: {top: string, left: string} = {top: `${top}px`, left: `${left}px`};
+
     return (
-    <div className="Square" style ={{top: `${top}px`, left: `${left}px`, 'position': 'absolute'}}>
+    <div className="Square" style ={styleClass}>
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg" 
         width="100" height="100"viewBox="0 0 1280.000000 1278.000000"
         preserveAspectRatio="xMidYMid meet">
@@ -31,9 +32,7 @@ const Square = (props: any) => {
        539 640 589 29 5 2184 8 4952 7 l4900 -1 73 -23z"/>
        </g>
        </svg>
-    </div>
-      
-    )
+    </div>)
 };
 
 export default Square;
