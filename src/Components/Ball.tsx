@@ -2,22 +2,31 @@ import React, {useState} from "react"
 
 const Ball = () => {
     
-  const [point, setPoint] = useState({ top: 10, left: 300 })
+  const [point, setPoint] = useState({ top: 10, left: 300 });
+  const [size, setSize] = useState({ width: 100, height: 100 });
 
-  const randomColor  = () => {
+  const randomColor  = () => {   //  Функция возвращает случайный цвет 
     const arrCollor = ['red', 'aqua', 'silver', 'blue' ];
     const randomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
     return arrCollor[randomNumber(0, 3)]
+  }; 
+
+  const styleClass: {top: string, left: string} = {top: `${point.top}px`, left: `${point.left}px`, } 
+  
+  const hendleClickUpPoint = (e: { stopPropagation: () => void; }) => {  // Меняет точку куда улетит мяч
+    e.stopPropagation();
+    const newTop = size.width === 100 ? 410 : 460;
+    point.top === 10 ? setPoint({...point, top: newTop}) : setPoint({...point, top: 10})
   };
 
-  const styleClass: {top: string, left: string} = {top: `${point.top}px`, left: `${point.left}px`, }
+  const handleDoubleClickUpdateSize = (e: { preventDefault: () => void; }) => { // События правой кнопки мыши  меняет размер мяча
+    e.preventDefault();
+    size.width === 100 ? setSize({width: 50, height: 50}) : setSize({width: 100, height: 100})
+  };
 
-  const ball = <div className="Ball" style={styleClass} onClick={(e) => {
-      e.stopPropagation();
-      point.top === 10 ? setPoint({...point, top: 410}) : setPoint({...point, top: 10})
-    }}>
+  const ball = <div className="Ball" style={styleClass} onContextMenu={handleDoubleClickUpdateSize} onClick={hendleClickUpPoint}>
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-    width="100" height="100" viewBox="0 0 1274.000000 1280.000000"
+    width={size.width} height={size.height} viewBox="0 0 1274.000000 1280.000000"
     preserveAspectRatio="xMidYMid meet">
    <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
     fill={randomColor()} stroke="none">

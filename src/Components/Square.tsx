@@ -2,10 +2,10 @@ import * as React from "react"
 
 const Square = (props: { props :{ left: number, top: number }}) => {
 
-    const left = props.props.left ?? 300;
-    const top = props.props.top ?? 300;
+    const left = props.props.left === 0 ?  200 : props.props.left
+    const top = props.props.top === 0 ?  200 : props.props.top
 
-    const randomColor  = () => {
+    const randomColor  = () => { // Функция возвращает случайный цвет 
         const arrCollor = ['red', 'aqua', 'silver', 'blue' ];
         const randomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
         return arrCollor[randomNumber(0, 3)];

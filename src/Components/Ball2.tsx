@@ -1,10 +1,8 @@
 import React, {useState} from "react"
 
 const Ball2 = () => {
-    
-  const [point, setPoint] = useState({ top: 10, left: 200 })
 
-  const randomColor  = () => {
+  const randomColor  = () => { //  Функция возвращает случайный цвет 
     const arrCollor = ['red', 'aqua', 'silver', 'blue' ];
     const randomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
     return arrCollor[randomNumber(0, 3)]

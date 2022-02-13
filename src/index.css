@@ -7,7 +7,7 @@
 
 .Square {
   position: absolute;
-  transition: top 2s cubic-bezier(0, 0, 1, 1), left 2s cubic-bezier(0, 0, 1, 1)
+  transition: top 2s cubic-bezier(0, 0, 1, 1), left 2s cubic-bezier(0, 0, 1, 1) 
 }
 
 .Square g {
@@ -18,12 +18,17 @@
 
 .Ball {
   position: absolute;
-  transition: top 2s cubic-bezier(0, 0, 1, 1);
+  transition: top 2s cubic-bezier(0, 0, 1, 1), 
+
 }
 
 .Ball g  {
   transition-property: fill;
   transition-duration: 2s;
+}
+
+.Ball svg  {
+  transition: width 3s, height 3s
 }
 
 #color {
@@ -44,6 +49,7 @@
   position: absolute;
   transition: top 1s cubic-bezier(0, 0, 1, 3);
   animation: go-left-right 1s infinite alternate;
+
 }
 
 .Ball2 g  {

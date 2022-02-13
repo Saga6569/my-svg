@@ -1,3 +1,5 @@
+Левая кнопка мыши меняет положение квадрата,  клик левой кнопки мыши  по неподвижному мечу меняет его  положение если на нем кликнуть  правой он меняет свой размер.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
